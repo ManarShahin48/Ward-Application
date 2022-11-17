@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ward/utils/color_manager.dart';
 import 'package:ward/view/auth/login_screen.dart';
 
 void main() {
@@ -7,10 +8,16 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: LoginScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: ColorManager.primary,
+        primaryColorLight: ColorManager.primary,
+      ),
+      home: const LoginScreen(),
     );
   }
 }
