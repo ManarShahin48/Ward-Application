@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "140141817247",
+    "project_id": "ward-96504",
+    "storage_bucket": "ward-96504.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140141817247:android:dc6e759a2439c9ec13a1aa",
+        "android_client_info": {
+          "package_name": "com.example.ward"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140141817247-iiu0s9r5pdos2513vvle4q9eto95h21m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ward",
+            "certificate_hash": "1185902933a35c0c7e2939a80570c99680d5f1d0"
+          }
+        },
+        {
+          "client_id": "140141817247-3nq7c1pvvjose37e4tncnnbdnb1r43db.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUalDQHFLvJYSBEltl03aWR17O4YDyFjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140141817247-3nq7c1pvvjose37e4tncnnbdnb1r43db.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
