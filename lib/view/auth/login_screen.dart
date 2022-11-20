@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:ward/core/viewModel/auth_view_model.dart';
 import 'package:ward/utils/utils.dart';
 import 'package:ward/view/widgets/custom_btn.dart';
 import 'package:ward/view/widgets/custom_btn_social.dart';
 import 'package:ward/view/widgets/custom_text.dart';
 import 'package:ward/view/widgets/custom_text_form_field.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetWidget<AuthViewModel> {
   const LoginScreen({Key? key}) : super(key: key);
 
   // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
