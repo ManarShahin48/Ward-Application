@@ -42,4 +42,15 @@ class AuthViewModel extends GetxController {
     //   Get.offAll(HomeView());
     // });
   }
+
+  // void facebookSignInMethod() async {
+  //   final AccessToken result = await FacebookAuth.instance.login();
+  //
+  //   final FacebookAuthCredential facebookAuthCredential =
+  //   FacebookAuthProvider.credential(result.token);
+  //
+  //   await _auth.signInWithCredential(facebookAuthCredential).then((user) {
+  //     saveUser(user);
+  //   });
+  // }
 }
