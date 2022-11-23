@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -43,14 +44,13 @@ class AuthViewModel extends GetxController {
     // });
   }
 
-  // void facebookSignInMethod() async {
-  //   final AccessToken result = await FacebookAuth.instance.login();
-  //
-  //   final FacebookAuthCredential facebookAuthCredential =
-  //   FacebookAuthProvider.credential(result.token);
-  //
-  //   await _auth.signInWithCredential(facebookAuthCredential).then((user) {
-  //     saveUser(user);
-  //   });
-  // }
+  void facebookSignInMethod() async {
+    final AccessToken result =
+        (await FacebookAuth.instance.login()) as AccessToken;
+
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(result.token);
+
+    await _auth.signInWithCredential(facebookAuthCredential);
+  }
 }
