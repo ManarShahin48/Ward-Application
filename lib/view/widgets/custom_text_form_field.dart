@@ -7,13 +7,13 @@ class CustomTextFormField extends StatelessWidget {
     required this.text,
     required this.hint,
     required this.onSave,
-    required this.validator,
+    // required this.validator,
   }) : super(key: key);
 
   final String text;
   final String hint;
   final Function(String?) onSave;
-  final String Function(String?) validator;
+  // final String Function(String?) validator;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         TextFormField(
           onSaved: onSave,
-          validator: validator,
+          // validator: validator,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: const TextStyle(

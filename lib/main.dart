@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ward/utils/binding.dart';
 import 'package:ward/utils/color_manager.dart';
-import 'package:ward/view/auth/login_screen.dart';
+import 'package:ward/view/control_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         primaryColor: ColorManager.primary,
         primaryColorLight: ColorManager.primary,
       ),
-      home: const LoginScreen(),
+      home: const ControlView(),
     );
   }
 }

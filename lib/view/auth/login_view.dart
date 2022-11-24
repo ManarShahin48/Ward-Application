@@ -7,10 +7,11 @@ import 'package:ward/view/widgets/custom_btn_social.dart';
 import 'package:ward/view/widgets/custom_text.dart';
 import 'package:ward/view/widgets/custom_text_form_field.dart';
 
-class LoginScreen extends GetWidget<AuthViewModel> {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginView extends GetWidget<AuthViewModel> {
+  LoginView({Key? key}) : super(key: key);
 
-  // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
           right: PaddingManager.p20,
         ),
         child: Form(
-          // key: _formKey,
+          key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -50,11 +51,14 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                   text: 'Email',
                   hint: 'iamdavid@gmail.com',
                   onSave: (value) {
-                    // controller.email = value;
+                    controller.email = value!;
                   },
-                  validator: (value) {
-                    return "";
-                  },
+                  // validator: (value) {
+                  //   if (value == null) {
+                  //     print('error');
+                  //   }
+                  //   return "";
+                  // },
                 ),
                 const SizedBox(
                   height: SizeManager.s40,
@@ -63,14 +67,14 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                   text: 'Password',
                   hint: '**********',
                   onSave: (value) {
-                    // controller.password = value;
+                    controller.password = value!;
                   },
-                  validator: (value) {
-                    return "";
-                    // if (value == null) {
-                    //   print('error');
-                    // }
-                  },
+                  // validator: (value) {
+                  //   if (value == null) {
+                  //     print('error');
+                  //   }
+                  //   return "";
+                  // },
                 ),
                 const SizedBox(
                   height: SizeManager.s20,
@@ -85,7 +89,14 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                 ),
                 CustomButton(
                   label: 'SIGN IN',
-                  onClick: (){},
+                  onClick: () {
+                    _formKey.currentState?.save();
+                    controller.signInWithEmailAndPassword();
+                    if (_formKey.currentState!.validate()) {
+                      print('object');
+                      controller.signInWithEmailAndPassword();
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: SizeManager.s40,
@@ -100,7 +111,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                 CustomBtnSocial(
                   txt: 'Sign In with Facebook',
                   img: IconManager.facebookLogo,
-                  onPressed: (){
+                  onPressed: () {
                     controller.facebookSignInMethod();
                   },
                 ),
@@ -110,7 +121,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                 CustomBtnSocial(
                   txt: 'Sign In with Google',
                   img: IconManager.googleLogo,
-                  onPressed: (){
+                  onPressed: () {
                     controller.googleSignInMethod();
                   },
                 ),
