@@ -1,26 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ward/utils/utils.dart';
 
-TextStyle _getInterTextStyle({
+TextStyle _getCairoTextStyle({
   required Color color,
   required FontWeight fontWeight,
   required double fontSize,
 }) {
   return TextStyle(
-    fontFamily: FontFamily.inter,
-    color: color,
-    fontWeight: fontWeight,
-    fontSize: fontSize,
-  );
-}
-
-TextStyle _getNoorTextStyle({
-  required Color color,
-  required FontWeight fontWeight,
-  required double fontSize,
-}) {
-  return TextStyle(
-    fontFamily: FontFamily.noor,
+    fontFamily: FontFamily.cairo,
     color: color,
     fontWeight: fontWeight,
     fontSize: fontSize,
@@ -29,11 +16,11 @@ TextStyle _getNoorTextStyle({
 
 // bold
 
-TextStyle getInterBoldStyle({
+TextStyle getCairoBoldStyle({
   required Color color,
   required double fontSize,
 }) {
-  return _getInterTextStyle(
+  return _getCairoTextStyle(
     fontSize: fontSize,
     fontWeight: FontWeightManager.bold,
     color: color,
@@ -41,22 +28,22 @@ TextStyle getInterBoldStyle({
 }
 
 // regular
-TextStyle getInterRegularStyle({
+TextStyle getCairoRegularStyle({
   required Color color,
   required double fontSize,
 }) {
-  return _getInterTextStyle(
+  return _getCairoTextStyle(
     fontSize: fontSize,
     fontWeight: FontWeightManager.regular,
     color: color,
   );
 }
 
-TextStyle getInterMediumStyle({
+TextStyle getCairoMediumStyle({
   required Color color,
   required double fontSize,
 }) {
-  return _getInterTextStyle(
+  return _getCairoTextStyle(
     fontSize: fontSize,
     fontWeight: FontWeightManager.medium,
     color: color,
@@ -64,26 +51,14 @@ TextStyle getInterMediumStyle({
 }
 
 // light style
-TextStyle getInterLightStyle({
+TextStyle getCairoLightStyle({
   required Color color,
   required double fontSize,
 }) {
-  return _getInterTextStyle(
+  return _getCairoTextStyle(
     fontSize: fontSize,
     fontWeight: FontWeightManager.light,
     color: color,
-  );
-}
-
-// bold noor
-TextStyle getNorTextStyle({
-  required double fontSize,
-  required Color color,
-}) {
-  return _getNoorTextStyle(
-    color: color,
-    fontWeight: FontWeightManager.bold,
-    fontSize: fontSize,
   );
 }
 
@@ -92,10 +67,7 @@ List<BoxShadow> myShadow({
 }) =>
     [
       BoxShadow(
-        color: false
-            // appDarkModelEnabled()
-            ? Colors.black.withOpacity(opacity)
-            : Colors.grey.withOpacity(opacity),
+        color: Colors.grey.withOpacity(opacity),
         spreadRadius: 1,
         blurRadius: 4,
         offset: const Offset(0, 1), // changes position of shadow

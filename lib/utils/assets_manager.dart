@@ -1,10 +1,12 @@
 const String imagePath = 'assets/images';
 const String iconPath = 'assets/icons';
-const String drawerIconPath = 'assets/icons/drawer';
 const String jsonPath = 'assets/json';
 
 class ImageManager {
   ImageManager._();
+
+  static const String sunflower = '$imagePath/sunflower.svg';
+
 }
 
 class IconManager {

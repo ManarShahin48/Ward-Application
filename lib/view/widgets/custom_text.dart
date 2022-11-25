@@ -25,9 +25,8 @@ class CustomText extends StatelessWidget {
       alignment: alignment,
       child: Text(
         text,
-        style: TextStyle(
+        style: getCairoRegularStyle(
           color: color,
-          height: height,
           fontSize: fontSize,
         ),
         maxLines: maxLine,

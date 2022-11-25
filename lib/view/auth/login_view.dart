@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ward/core/viewModel/auth_view_model.dart';
 import 'package:ward/utils/utils.dart';
@@ -8,7 +9,7 @@ import 'package:ward/view/widgets/custom_btn_social.dart';
 import 'package:ward/view/widgets/custom_text.dart';
 import 'package:ward/view/widgets/custom_text_form_field.dart';
 
-class LoginView extends GetWidget<AuthViewModel> {
+class LoginView extends GetView<AuthViewModel> {
   LoginView({Key? key}) : super(key: key);
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -50,12 +51,12 @@ class LoginView extends GetWidget<AuthViewModel> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: SizeManager.s30,
+                SvgPicture.asset(
+                  ImageManager.sunflower,
+                  height: SizeManager.s280,
                 ),
                 CustomTextFormField(
-                  text: 'Email',
-                  hint: 'iamdavid@gmail.com',
+                  text: 'Your Email',
                   onSave: (value) {
                     controller.email = value!;
                   },
@@ -66,20 +67,25 @@ class LoginView extends GetWidget<AuthViewModel> {
                   },
                 ),
                 const SizedBox(
-                  height: SizeManager.s40,
+                  height: SizeManager.s3,
                 ),
-                CustomTextFormField(
-                  text: 'Password',
-                  hint: '**********',
-                  onSave: (value) {
-                    controller.password = value!;
-                  },
-                  validator: (value) {
-                    if (value == null) {
-                      print('error');
-                    }
-                  },
-                ),
+                Obx(() => CustomTextFormField(
+                      text: 'Password',
+                      onSave: (value) {
+                        controller.password = value!;
+                      },
+                      validator: (value) {
+                        if (value == null) {
+                          print('error');
+                        }
+                      },
+                      obscureText: controller.isPasswordHidden.value,
+                      isPassword: true,
+                      suffixOnPressed: () {
+                        controller.isPasswordHidden.value =
+                            !controller.isPasswordHidden.value;
+                      },
+                    )),
                 const SizedBox(
                   height: SizeManager.s20,
                 ),
@@ -93,24 +99,16 @@ class LoginView extends GetWidget<AuthViewModel> {
                 ),
                 CustomButton(
                   label: 'SIGN IN',
+                  fontSize: SizeManager.s20,
                   onClick: () {
                     _formKey.currentState?.save();
-                    controller.signInWithEmailAndPassword();
                     if (_formKey.currentState!.validate()) {
-                      print('object');
                       controller.signInWithEmailAndPassword();
                     }
                   },
                 ),
                 const SizedBox(
-                  height: SizeManager.s40,
-                ),
-                const CustomText(
-                  text: '-OR-',
-                  alignment: Alignment.center,
-                ),
-                const SizedBox(
-                  height: SizeManager.s40,
+                  height: SizeManager.s20,
                 ),
                 CustomBtnSocial(
                   txt: 'Sign In with Facebook',
@@ -120,7 +118,7 @@ class LoginView extends GetWidget<AuthViewModel> {
                   },
                 ),
                 const SizedBox(
-                  height: SizeManager.s40,
+                  height: SizeManager.s20,
                 ),
                 CustomBtnSocial(
                   txt: 'Sign In with Google',

@@ -43,7 +43,7 @@ class CustomBtnSocial extends StatelessWidget {
               child: Text(
                 txt,
                 textAlign: TextAlign.center,
-                style: getInterRegularStyle(
+                style: getCairoRegularStyle(
                   color: ColorManager.black,
                   fontSize: FontSize.s16,
                 ),

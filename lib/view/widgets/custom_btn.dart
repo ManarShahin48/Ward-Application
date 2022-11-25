@@ -19,50 +19,56 @@ class CustomButton extends Container {
     String? assetIcon,
     IconData? icon,
   }) : super(
-    key: key,
-    height: height,
-    width: width,
-    clipBehavior: Clip.antiAlias,
-    padding: const EdgeInsets.all(.5),
-    decoration: BoxDecoration(
-      color: backgroundColor,
-      boxShadow: myShadow(opacity: .2),
-      border: Border.all(
-          color: borderColor ?? backgroundColor,
-          width: enableBorder ? 1.0 : 0.0),
-      borderRadius: BorderRadius.circular(radius),
-    ),
-    child: MaterialButton(
-      onPressed: onClick,
-      color: backgroundColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(radius),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Text(label,
-              style: getInterBoldStyle(color: textColor, fontSize: fontSize)),
-          if (assetIcon != null)
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Image.asset(
-                assetIcon,
-                height: iconSize,
-                fit: BoxFit.fill,
-                color: textColor,
-              ),
+          key: key,
+          height: height,
+          width: width,
+          clipBehavior: Clip.antiAlias,
+          padding: const EdgeInsets.all(.5),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            boxShadow: myShadow(opacity: .2),
+            border: Border.all(
+                color: borderColor ?? backgroundColor,
+                width: enableBorder ? 1.0 : 0.0),
+            borderRadius: BorderRadius.circular(radius),
+          ),
+          child: MaterialButton(
+            onPressed: onClick,
+            color: backgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(radius),
             ),
-          if (icon != null)
-            Align(
-                alignment: Alignment.centerLeft,
-                child: Icon(
-                  icon,
-                  color: textColor,
-                  size: iconSize,
-                )),
-        ],
-      ),
-    ),
-  );
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Text(
+                  label,
+                  style: getCairoBoldStyle(
+                    color: textColor,
+                    fontSize: fontSize,
+                  ),
+                ),
+                if (assetIcon != null)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Image.asset(
+                      assetIcon,
+                      height: iconSize,
+                      fit: BoxFit.fill,
+                      color: textColor,
+                    ),
+                  ),
+                if (icon != null)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Icon(
+                      icon,
+                      color: textColor,
+                      size: iconSize,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        );
 }

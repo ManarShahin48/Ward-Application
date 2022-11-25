@@ -9,6 +9,7 @@ class AuthViewModel extends GetxController {
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   final FirebaseAuth _auth = FirebaseAuth.instance;
   late String email, name, password;
+  var isPasswordHidden = true.obs;
 
   // final Rx<User> _user = Rx<User>();
   final Rxn<User> _user = Rxn<User>();

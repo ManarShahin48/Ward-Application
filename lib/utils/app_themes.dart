@@ -15,7 +15,7 @@ ThemeData mainLightTheme() => ThemeData(
   //   titleTextStyle: TextStyle(
   //     color: ColorManager.white,
   //     fontSize: 18.0,
-  //     fontFamily: 'Cairo Regular',
+  //     fontFamily: 'cairo Regular',
   //     fontWeight: FontWeight.bold,
   //   ),
   //   backgroundColor: ColorManager.primaryColor,
@@ -100,7 +100,7 @@ ThemeData mainLightTheme() => ThemeData(
 //     titleTextStyle: TextStyle(
 //       color: ColorManager.lightGrey,
 //       fontSize: 18.0,
-//       fontFamily: 'Cairo Regular',
+//       fontFamily: 'cairo Regular',
 //       fontWeight: FontWeight.bold,
 //     ),
 //     backgroundColor: ColorManager.primaryColor,

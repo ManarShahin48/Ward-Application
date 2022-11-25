@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class FontFamily {
   const FontFamily._();
 
-  static const String inter = 'Inter';
-  static const String noor = 'Noor';
+    static const String cairo = 'Cairo';
 }
 
 class FontSize {
