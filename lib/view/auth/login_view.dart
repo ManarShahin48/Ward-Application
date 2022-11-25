@@ -59,12 +59,11 @@ class LoginView extends GetWidget<AuthViewModel> {
                   onSave: (value) {
                     controller.email = value!;
                   },
-                  // validator: (value) {
-                  //   if (value == null) {
-                  //     print('error');
-                  //   }
-                  //   return "";
-                  // },
+                  validator: (value) {
+                    if (value == null) {
+                      print('error');
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: SizeManager.s40,
@@ -75,12 +74,11 @@ class LoginView extends GetWidget<AuthViewModel> {
                   onSave: (value) {
                     controller.password = value!;
                   },
-                  // validator: (value) {
-                  //   if (value == null) {
-                  //     print('error');
-                  //   }
-                  //   return "";
-                  // },
+                  validator: (value) {
+                    if (value == null) {
+                      print('error');
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: SizeManager.s20,

@@ -45,48 +45,48 @@ class RegisterView extends GetWidget<AuthViewModel> {
                 const SizedBox(
                   height: 30,
                 ),
-                CustomTextFormField(
-                  text: 'Name',
-                  hint: 'Pesa',
-                  onSave: (value) {
-                    controller.name = value!;
-                  },
-                  // validator: (value) {
-                  //   if (value == null) {
-                  //     print("ERROR");
-                  //   }
-                  // },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                CustomTextFormField(
-                  text: 'Email',
-                  hint: 'iamdavid@gmail.com',
-                  onSave: (value) {
-                    controller.email = value!;
-                  },
-                  // validator: (value) {
-                  //   if (value == null) {
-                  //     print("ERROR");
-                  //   }
-                  // },
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                CustomTextFormField(
-                  text: 'Password',
-                  hint: '**********',
-                  onSave: (value) {
-                    controller.password = value!;
-                  },
-                  // validator: (value) {
-                  //   if (value == null) {
-                  //     print('error');
-                  //   }
-                  // },
-                ),
+                // CustomTextFormField(
+                //   text: 'Name',
+                //   hint: 'Pesa',
+                //   onSave: (value) {
+                //     controller.name = value!;
+                //   },
+                //   validator: (value) {
+                //     if (value == null) {
+                //       print("ERROR");
+                //     }
+                //   },
+                // ),
+                // const SizedBox(
+                //   height: 30,
+                // ),
+                // CustomTextFormField(
+                //   text: 'Email',
+                //   hint: 'iamdavid@gmail.com',
+                //   onSave: (value) {
+                //     controller.email = value!;
+                //   },
+                //   validator: (value) {
+                //     if (value == null) {
+                //       print("ERROR");
+                //     }
+                //   },
+                // ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
+                // CustomTextFormField(
+                //   text: 'Password',
+                //   hint: '**********',
+                //   onSave: (value) {
+                //     controller.password = value!;
+                //   },
+                //   validator: (value) {
+                //     if (value == null) {
+                //       print('error');
+                //     }
+                //   },
+                // ),
                 const SizedBox(
                   height: 15,
                 ),

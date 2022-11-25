@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ward/utils/utils.dart';
 import 'package:ward/utils/binding.dart';
-import 'package:ward/utils/color_manager.dart';
-import 'package:ward/view/control_view.dart';
+import 'package:ward/view/auth/login_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,11 +19,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: ColorManager.primary,
-        primaryColorLight: ColorManager.primary,
-      ),
-      home: const ControlView(),
+      theme: mainLightTheme(),
+      home: LoginView(),
     );
   }
 }
