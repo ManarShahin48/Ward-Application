@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ward/core/viewModel/auth_view_model.dart';
 import 'package:ward/utils/utils.dart';
+import 'package:ward/view/auth/register_view.dart';
 import 'package:ward/view/widgets/custom_btn.dart';
 import 'package:ward/view/widgets/custom_btn_social.dart';
 import 'package:ward/view/widgets/custom_text.dart';
@@ -15,10 +16,10 @@ class LoginView extends GetWidget<AuthViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: ColorManager.white,
-      ),
+      // appBar: AppBar(
+      //   elevation: 0.0,
+      //   backgroundColor: ColorManager.white,
+      // ),
       body: Padding(
         padding: const EdgeInsets.only(
           top: PaddingManager.p50,
@@ -32,15 +33,20 @@ class LoginView extends GetWidget<AuthViewModel> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    CustomText(
+                  children: [
+                    const CustomText(
                       text: 'Welcome,',
                       fontSize: SizeManager.s30,
                     ),
-                    CustomText(
-                      text: 'Sign Up',
-                      fontSize: SizeManager.s18,
-                      color: ColorManager.primary,
+                    InkWell(
+                      onTap: () {
+                        Get.to(RegisterView());
+                      },
+                      child: const CustomText(
+                        text: 'Sign Up',
+                        fontSize: SizeManager.s18,
+                        color: ColorManager.primary,
+                      ),
                     ),
                   ],
                 ),
