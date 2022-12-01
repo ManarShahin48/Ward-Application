@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ward/core/viewModel/auth_view_model.dart';
-import 'package:ward/view/auth/login_view.dart';
+import 'package:ward/utils/utils.dart';
 import 'package:ward/view/widgets/custom_btn.dart';
-import 'package:ward/view/widgets/custom_text.dart';
 import 'package:ward/view/widgets/custom_text_form_field.dart';
 
 class RegisterView extends GetWidget<AuthViewModel> {
@@ -16,16 +16,20 @@ class RegisterView extends GetWidget<AuthViewModel> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         elevation: 0.0,
-        leading: GestureDetector(
-            onTap: () {
-              Get.off(LoginView());
-            },
-            child: const Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            )),
+        iconTheme: const IconThemeData(
+          color: ColorManager.primary,
+          size: SizeManager.s40,
+        ),
+        title: Text(
+          'Sign Up',
+          style: getCairoBoldStyle(
+            color: ColorManager.primary,
+            fontSize: FontSize.s26,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -38,71 +42,67 @@ class RegisterView extends GetWidget<AuthViewModel> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const CustomText(
-                  text: "Sign Up,",
-                  fontSize: 30,
+                SvgPicture.asset(
+                  ImageManager.pot,
+                  height: SizeManager.s280,
+                ),
+                CustomTextFormField(
+                  text: 'Your Name',
+                  onSave: (value) {
+                    controller.name = value!;
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      print('error');
+                    }
+                  },
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: SizeManager.s3,
                 ),
-                // CustomTextFormField(
-                //   text: 'Name',
-                //   hint: 'Pesa',
-                //   onSave: (value) {
-                //     controller.name = value!;
-                //   },
-                //   validator: (value) {
-                //     if (value == null) {
-                //       print("ERROR");
-                //     }
-                //   },
-                // ),
-                // const SizedBox(
-                //   height: 30,
-                // ),
-                // CustomTextFormField(
-                //   text: 'Email',
-                //   hint: 'iamdavid@gmail.com',
-                //   onSave: (value) {
-                //     controller.email = value!;
-                //   },
-                //   validator: (value) {
-                //     if (value == null) {
-                //       print("ERROR");
-                //     }
-                //   },
-                // ),
-                // const SizedBox(
-                //   height: 40,
-                // ),
-                // CustomTextFormField(
-                //   text: 'Password',
-                //   hint: '**********',
-                //   onSave: (value) {
-                //     controller.password = value!;
-                //   },
-                //   validator: (value) {
-                //     if (value == null) {
-                //       print('error');
-                //     }
-                //   },
-                // ),
+                CustomTextFormField(
+                  text: 'Your Email',
+                  onSave: (value) {
+                    controller.email = value!;
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      print("ERROR");
+                    }
+                  },
+                ),
                 const SizedBox(
-                  height: 15,
+                  height: SizeManager.s3,
+                ),
+                Obx(() => CustomTextFormField(
+                      text: 'Password',
+                      onSave: (value) {
+                        controller.password = value!;
+                      },
+                      validator: (value) {
+                        if (value == null) {
+                          print('error');
+                        }
+                      },
+                      obscureText: controller.isPasswordHidden.value,
+                      isPassword: true,
+                      suffixOnPressed: () {
+                        controller.isPasswordHidden.value =
+                            !controller.isPasswordHidden.value;
+                      },
+                    )),
+                const SizedBox(
+                  height: SizeManager.s60,
                 ),
                 CustomButton(
                   onClick: () {
                     _formKey.currentState?.save();
 
-                    controller.createAccountWithEmailAndPassword();
-                    // if (_formKey.currentState.validate()) {
-                    //   controller.createAccountWithEmailAndPassword();
-                    // }
+                    if (_formKey.currentState!.validate()) {
+                      controller.createAccountWithEmailAndPassword();
+                    }
                   },
                   label: 'SIGN Up',
-                ),
-                const SizedBox(
-                  height: 40,
                 ),
               ],
             ),

@@ -6,6 +6,7 @@ class ImageManager {
   ImageManager._();
 
   static const String sunflower = '$imagePath/sunflower.svg';
+  static const String pot = '$imagePath/pot.svg';
 
 }
 

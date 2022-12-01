@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:ward/core/services/firebase_user.dart';
+import 'package:ward/model/user_model.dart';
 import 'package:ward/utils/color_manager.dart';
 import 'package:ward/view/home_view.dart';
 
@@ -24,13 +26,11 @@ class AuthViewModel extends GetxController {
 
   @override
   void onReady() {
-    // TODO: implement onReady
     super.onReady();
   }
 
   @override
   void onClose() {
-    // TODO: implement onClose
     super.onClose();
   }
 
@@ -47,10 +47,10 @@ class AuthViewModel extends GetxController {
 
     await _auth.signInWithCredential(credential);
 
-    // await _auth.signInWithCredential(credential).then((user) {
-    //   saveUser(user);
-    //   Get.offAll(HomeView());
-    // });
+    await _auth.signInWithCredential(credential).then((user) {
+      saveUser(user);
+      Get.offAll(const HomeView());
+    });
   }
 
   void facebookSignInMethod() async {
@@ -60,7 +60,10 @@ class AuthViewModel extends GetxController {
     final OAuthCredential facebookAuthCredential =
         FacebookAuthProvider.credential(result.token);
 
-    await _auth.signInWithCredential(facebookAuthCredential);
+    await _auth.signInWithCredential(facebookAuthCredential).then((user) {
+      saveUser(user);
+      Get.offAll(const HomeView());
+    });
   }
 
   void signInWithEmailAndPassword() async {
@@ -80,10 +83,13 @@ class AuthViewModel extends GetxController {
 
   void createAccountWithEmailAndPassword() async {
     try {
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((user) async {
+        saveUser(user);
+      });
 
-      Get.offAll(HomeView());
+      Get.offAll(const HomeView());
     } catch (e) {
       print(e.toString());
       Get.snackbar(
@@ -95,12 +101,12 @@ class AuthViewModel extends GetxController {
     }
   }
 
-// void saveUser(UserCredential user) async {
-//   await FireStoreUser().addUserToFireStore(UserModel(
-//     userId: user.user.uid,
-//     email: user.user.email,
-//     name: name == null ? user.user.displayName : name,
-//     pic: '',
-//   ));
-// }
+  void saveUser(UserCredential user) async {
+    await FireStoreUser().addUserToFireStore(UserModel(
+      userId: user.user?.uid,
+      email: user.user?.email,
+      name: name == '' ? user.user?.displayName : name,
+      pic: '',
+    ));
+  }
 }
