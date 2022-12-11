@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ward/utils/utils.dart';
 import 'package:ward/utils/binding.dart';
-import 'package:ward/view/auth/login_view.dart';
+import 'package:ward/view/control_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
       theme: mainLightTheme(),
-      home: LoginView(),
+      home: const ControlView(),
     );
   }
 }

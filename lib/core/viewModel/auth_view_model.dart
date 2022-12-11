@@ -49,7 +49,7 @@ class AuthViewModel extends GetxController {
 
     await _auth.signInWithCredential(credential).then((user) {
       saveUser(user);
-      Get.offAll(const HomeView());
+      Get.offAll(HomeView());
     });
   }
 
@@ -62,14 +62,14 @@ class AuthViewModel extends GetxController {
 
     await _auth.signInWithCredential(facebookAuthCredential).then((user) {
       saveUser(user);
-      Get.offAll(const HomeView());
+      Get.offAll(HomeView());
     });
   }
 
   void signInWithEmailAndPassword() async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.offAll(const HomeView());
+      Get.offAll(HomeView());
     } catch (e) {
       print(e.toString());
       Get.snackbar(
@@ -89,7 +89,7 @@ class AuthViewModel extends GetxController {
         saveUser(user);
       });
 
-      Get.offAll(const HomeView());
+      Get.offAll(HomeView());
     } catch (e) {
       print(e.toString());
       Get.snackbar(
